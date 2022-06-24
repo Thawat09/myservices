@@ -21,7 +21,7 @@ async def main():
 
 @app.getecho("/echo")
 async def main(text):
-    return 'Hello {text}'
+    return 'Hello ' + text
 
 @app.get("/test")
 async def test():
