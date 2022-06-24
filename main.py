@@ -19,10 +19,6 @@ def result(res):
 async def main():
     return 'Hello World'
 
-@app.getecho("/echo")
-async def main_echo(text):
-    return 'Hello ' + text
-
 @app.get("/test")
 async def test():
     return 'Test Tutorial'
@@ -142,4 +138,8 @@ async def countlength(text):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0", port=80, debug=True) 
+    uvicorn.run(app, host="0.0.0.0", port=80, debug=True)
+
+@app.get("/echo")
+async def echo(text):
+    return 'Hello ' + text
