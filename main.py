@@ -10,6 +10,14 @@ import requests
 from bs4 import BeautifulSoup
 from fastapi.responses import PlainTextResponse
 
+
+import pandas as pd
+import math
+from scipy.stats.stats import pearsonr
+from pandas.core.frame import DataFrame
+from google.colab import drive
+
+
 app = FastAPI()
 
 def result(res):
@@ -140,6 +148,223 @@ async def countlength(text):
 if __name__ == '__main__':
     uvicorn.run(app, host="0.0.0.0", port=80, debug=True)
 
+
 @app.get("/echo")
-async def echo(text):
-    return 'Hello ' + text
+async def echo():
+    drive.mount('/content/drive')
+    a = pd.read_csv('/content/drive/My Drive/ml-25m/A.csv')
+    movies = pd.read_csv('/content/drive/My Drive/ml-25m/movies.csv')
+    ratings = pd.read_csv('/content/drive/My Drive/ml-25m/ratings.csv')
+    ratings.drop('timestamp', inplace=True, axis=1)
+    ratings = ratings.merge(movies, on = 'movieId', how ='left')
+    a = a.merge(movies, on = 'movieId', how ='left')
+    b = a['genres'].value_counts().index.tolist()
+    topGenres = []
+    for i in range(len(b)):
+        topGenres.append(b[i])
+    movielist = []
+    for i in range(len(ratings)):
+        if(ratings['movieId'][i] == a['movieId'][1]):
+                x = ratings['userId'][i]
+                movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][2]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][3]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][4]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][5]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][6]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][7]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][8]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][9]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][10]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][11]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][12]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][13]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][14]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][15]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][16]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    movielist = []
+    for i in range(len(df)):
+        if(df['movieId'][i] == a['movieId'][17]):
+            x = df['userId'][i]
+            movielist.append(x)
+    df = DataFrame(movielist)
+    df = pd.DataFrame({'userId': df[0]})
+    df = df.merge(ratings, on = 'userId', how ='left')
+    
+    def merge_data(x, y):
+        merge_data = x.merge(y, on = 'movieId')
+        return merge_data
+
+    def total(merge_data):
+        math_x = merge_data['rating_x']
+        math_y = merge_data['rating_y']
+        pearsonr(math_x, math_y)
+        return pearsonr(math_x, math_y)
+
+    def function_merge(x, y) :
+        merge_data = x.merge(y, on = 'movieId' ,how ='outer' ,indicator=True)
+        return merge_data
+
+    def save_data(merge_data):
+        movielist = []
+        for i in range(len(merge_data)):
+            if(merge_data['_merge'][i] == 'right_only'):
+                x = merge_data['movieId'][i], merge_data['title'][i], merge_data['rating_y'][i], merge_data['genres_y'][i]
+                movielist.append(x)
+        return movielist
+
+    def create_table(x, y):
+        movielist =  save_data(function_merge(x, y))
+        df = DataFrame(movielist)
+        df = pd.DataFrame({
+            'movieId': df[0],
+            'title' : df[1],
+            'rating': df[2],
+            'genres': df[3]})
+        try :
+            moviel = []
+            for i in range(len(df)):
+                if(df['genres'][i] == topGenres[0]):
+                    x = df['movieId'][i], df['title'][i], df['rating'][i], df['genres'][i]
+                    moviel.append(x)
+            dd = DataFrame(moviel)
+            dd = pd.DataFrame({
+                'movieId': dd[0],
+                'title' : dd[1],
+                'rating': dd[2],
+                'genres': dd[3]})
+            df = dd.sort_values(by=['rating'])[::-1]
+            return df.head(5)
+        except:
+            moviel = []
+            for i in range(len(df)):
+                if(df['genres_y'][i] == topGenres[1]):
+                    x = df['movieId'][i], df['title'][i], df['rating'][i], df['genres'][i]
+                    moviel.append(x)
+            dd = DataFrame(moviel)
+            dd = pd.DataFrame({
+                'movieId': dd[0],
+                'title' : dd[1],
+                'rating': dd[2],
+                'genres_y': dd[3]})
+            df = dd.sort_values(by=['rating'])[::-1]
+            return df.head(5)
+    
+    merge_data(a, df)
+
+    dfMean = total(merge_data(a, df))
+    dfMean
+
+    function_merge(a, df)
+
+    save_data(function_merge(a, df))
+
+    create_table(a, df)
