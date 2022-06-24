@@ -20,7 +20,7 @@ async def main():
     return 'Hello World'
 
 @app.getecho("/echo")
-async def main(text):
+async def main_echo(text):
     return 'Hello ' + text
 
 @app.get("/test")
@@ -142,4 +142,4 @@ async def countlength(text):
 
 
 if __name__ == '__main__':
-   uvicorn.run(app, host="0.0.0.0", port=80, debug=True) 
+    uvicorn.run(app, host="0.0.0.0", port=80, debug=True) 
