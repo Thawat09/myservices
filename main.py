@@ -19,6 +19,10 @@ def result(res):
 async def main():
     return 'Hello World'
 
+@app.getecho("/echo")
+async def main(text):
+    return 'Hello {text}'
+
 @app.get("/test")
 async def test():
     return 'Test Tutorial'
